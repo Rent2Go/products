@@ -36,8 +36,8 @@ public class ProductManager implements ProductService {
         if (existingProductOptional.isPresent()) {
             Product existingProduct = existingProductOptional.get();
             existingProduct.setTitle(updatedProduct.getTitle());
-            existingProduct.setProductDescription(updatedProduct.getProductDescription());
-            existingProduct.setProductPrice(updatedProduct.getProductPrice());
+            existingProduct.setDescription(updatedProduct.getDescription());
+            existingProduct.setPrice(updatedProduct.getPrice());
             existingProduct.setDiscountPercentage(updatedProduct.getDiscountPercentage());
             existingProduct.setProductRating(updatedProduct.getProductRating());
             existingProduct.setAvailableStock(updatedProduct.getAvailableStock());

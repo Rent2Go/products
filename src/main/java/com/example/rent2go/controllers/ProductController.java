@@ -12,7 +12,8 @@ import java.util.Optional;
 
 @RestController
 @AllArgsConstructor
-@RequestMapping("/products")
+@RequestMapping("/api/v1/products")
+@CrossOrigin
 public class ProductController {
 
 
@@ -28,17 +29,17 @@ public class ProductController {
         return productService.getProductById(id);
     }
 
-    @PostMapping
+    @PostMapping("/addProduct")
     public Product addProduct(@Valid @RequestBody Product product) {
         return productService.addProduct(product);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/updateProduct/{id}")
     public Product updateProduct(@PathVariable int id, @Valid @RequestBody Product updatedProduct) {
         return productService.updateProduct(id, updatedProduct);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/deleteProduct/{id}")
     public void deleteProduct(@PathVariable int id) {
         productService.deleteProduct(id);
     }

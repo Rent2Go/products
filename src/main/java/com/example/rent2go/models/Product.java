@@ -14,19 +14,19 @@ import java.util.List;
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "product_id")
-    private int productId;
+    @Column(name = "id")
+    private int id;
 
-    @Column(nullable = false)
+    @Column(name = "title", nullable = false)
     private String title;
 
     @Column(length = 1000, name = "description")
-    private String productDescription;
+    private String description;
 
     @Column(nullable = false, name = "price")
-    private double productPrice;
+    private double price;
 
-    @Column(name = "discount_percentage")
+    @Column(name = "discountPercentage")
     private double discountPercentage;
 
     @Column(name = "rating")
@@ -44,13 +44,10 @@ public class Product {
     @Column(name = "thumbnail")
     private String thumbnailUrl;
 
-    @ManyToOne
-    @JoinColumn(name = "category_id")
-    private Category category;
 
     @ElementCollection
     @CollectionTable(name = "product_images", joinColumns = @JoinColumn(name = "product_id"))
-    @Column(name = "image_url")
+    @Column(name = "images")
     private List<String> productImages;
 }
 
